@@ -24,6 +24,8 @@ public class Main {
         int[] list;
     	long startTime;
     	long endTime;
+        ArrayList<Integer> tim;
+        int[] temp;
 
 		Scanner input = new Scanner(System.in);
     	
@@ -33,7 +35,7 @@ public class Main {
     	System.out.println("Press 2 for Quicksort:");
     	System.out.println("Press 3 for Timsort:");
     	System.out.println("Press 4 for Bubblesort:");
-    	System.out.println("Compare all of the above sorts");
+    	System.out.println("Press 5 to compare all of the above sorts");
     	
     	try
         {
@@ -41,7 +43,7 @@ public class Main {
         }
         catch(Exception e)
         {
-            System.out.println("only numbers are allowed");
+            System.out.println("only numbers 1-5 are allowed");
             System.exit(0);
         }
     	
@@ -96,7 +98,7 @@ public class Main {
                 break;
             case 3:
             	// Uses Collections.sort on array list
-                ArrayList<Integer> tim = new ArrayList<>();
+                tim = new ArrayList<>();
                 for (int aList : list)
                     tim.add(aList);
                 System.out.println("Given Array");
@@ -122,8 +124,33 @@ public class Main {
                 break;
 
             case 5:
-                System.out.println("The resulting times of each algorithm is: ");
-
+                //MergeSort
+                temp = list.clone();
+                startTime = System.nanoTime();
+                Algorithms.mergeSort(temp, 0, list.length-1);
+                endTime = System.nanoTime();
+                Print.printTime("MergeSort", endTime, startTime);
+                //QuickSort
+                temp = list.clone();
+                startTime = System.nanoTime();
+                Algorithms.quickSort(temp, 0, list.length-1);
+                endTime = System.nanoTime();
+                Print.printTime("QuickSort", endTime, startTime);
+                //TimSort
+                tim = new ArrayList<>();
+                for (int aList : list)
+                    tim.add(aList);
+                startTime = System.nanoTime();
+                Collections.sort(tim);
+                endTime = System.nanoTime();
+                Print.printTime("TimSort", endTime, startTime);
+                //BubbleSort
+                temp = list.clone();
+                startTime = System.nanoTime();
+                Algorithms.bubbleSort(temp);
+                endTime = System.nanoTime();
+                Print.printTime("Bubblesort", endTime, startTime);
+                break;
             default:
                 System.out.println("Invalid sort selection provided.");
                 System.exit(0);

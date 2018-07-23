@@ -29,7 +29,7 @@ public class Print {
      */
     public static void printTime(String name, long end, long start)
     {
-        System.out.println(name + " algorithm ran for " + (end - start) + " nanoseconds.\n");
+        System.out.println(name + " algorithm ran for " + (end - start) + " nanoseconds.");
     }
 
 }
