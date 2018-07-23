@@ -33,6 +33,7 @@ public class Main {
     	System.out.println("Press 2 for Quicksort:");
     	System.out.println("Press 3 for Timsort:");
     	System.out.println("Press 4 for Bubblesort:");
+    	System.out.println("Compare all of the above sorts");
     	
     	try
         {
@@ -119,6 +120,10 @@ public class Main {
                 System.out.println("Resulting Array");
                 Print.printList(list);
                 break;
+
+            case 5:
+                System.out.println("The resulting times of each algorithm is: ");
+
             default:
                 System.out.println("Invalid sort selection provided.");
                 System.exit(0);
